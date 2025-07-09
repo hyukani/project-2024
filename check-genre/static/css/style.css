@@ -1,0 +1,117 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+/* Body background */
+body {
+    background: linear-gradient(to right, #B3E5FC, #E1F5FE);
+    min-height: 100vh;
+}
+
+/* Navigasi */
+.navbar {
+    background-color: #0288D1; 
+    padding: 15px;
+    text-align: center;
+}
+
+.navbar-brand {
+    font-size: 1.5em;
+    color: #FFFFFF;
+    font-weight: bold;
+}
+
+/* Maiin container */
+.container {
+    max-width: 600px;
+    background-color: rgba(255, 255, 255, 0.8);
+    margin: 40px auto;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Judul di container */
+.container h1 {
+    text-align: center;
+    color: #01579B; /* Biru gelap */
+    margin-bottom: 20px;
+}
+
+/* Text area dan button */
+.container textarea {
+    width: 100%;
+    resize: none;
+    border: 2px solid #81D4FA;
+    border-radius: 4px;
+    padding: 10px;
+    font-size: 1em;
+    min-height: 100px;
+    margin-bottom: 15px;
+}
+
+.btn {
+    background-color: #01579B;
+    color: #fff;
+    border: none;
+    padding: 12px 24px;
+    font-size: 1em;
+    border-radius: 4px;
+    cursor: pointer;
+    display: block;
+    margin: 0 auto;
+    transition: background-color 0.3s;
+}
+
+.btn:hover {
+    background-color: #0277BD;
+}
+
+/* Error message */
+.error {
+    background-color: #ffcccc;
+    padding: 10px;
+    margin-bottom: 15px;
+    text-align: center;
+    border: 1px solid red;
+    color: #333;
+    border-radius: 4px;
+}
+
+/* Halaman hasil */
+.result-box {
+    background-color: #FFFFFF;
+    padding: 20px;
+    border-radius: 6px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.result-box h3 {
+    color: #01579B;
+    margin-bottom: 10px;
+}
+
+.genre {
+    font-weight: bold;
+    font-size: 1.2em;
+    color: #004D40; 
+}
+
+/* Tombol back */
+.btn-back {
+    text-decoration: none;
+    display: inline-block;
+    background-color: #0288D1;
+    color: #fff;
+    padding: 10px 18px;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+.btn-back:hover {
+    background-color: #0277BD;
+}

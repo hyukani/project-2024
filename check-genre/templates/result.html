@@ -1,0 +1,30 @@
+<!-- templates/result.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Hasil Prediksi Genre</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="navbar-brand">Klasifikasi Genre Komik</div>
+  </nav>
+
+  <div class="container">
+    <h1>Hasil Prediksi Genre</h1>
+    
+    <div class="result-box">
+      <h3>Ringkasan Komik:</h3>
+      <p>{{ ringkasan }}</p>
+      
+      <h3>Genre yang Diprediksi:</h3>
+      <p class="genre">{{ genre }}</p>
+    </div>
+
+    <a href="{{ url_for('home') }}" class="btn-back">Kembali ke Halaman Utama</a>
+  </div>
+
+</body>
+</html>

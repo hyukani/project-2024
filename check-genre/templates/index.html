@@ -1,0 +1,29 @@
+<!-- templates/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title> tgc </title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+  <nav class="navbar">
+    <!-- <div class="navbar-brand"> tgc </div> -->
+  </nav>
+
+  <div class="container">
+    <h1>☄ Prediksi Genre Komik ☄</h1>
+
+    {% if error %}
+      <div class="error">{{ error }}</div>
+    {% endif %}
+
+    <form action="{{ url_for('predict') }}" method="POST">
+      <textarea name="komik_input" rows="6" placeholder="Tulis ringkasan komik di sini..."></textarea>
+      <button type="submit" class="btn">Prediksi Genre</button>
+    </form>
+  </div>
+
+</body>
+</html>
