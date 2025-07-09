@@ -1,0 +1,29 @@
+/* style.css */
+
+/* Mengatur tampilan judul */
+h1 {
+    text-align: center;
+    color: #f74a06;
+}
+
+/* Mengatur tampilan deskripsi */
+.description {
+    text-align: center;
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+/* Mengatur tampilan hasil prediksi */
+.result {
+    text-align: center;
+    font-size: 20px;
+    color: #f74a06;
+    margin-top: 20px;
+}
+
+/* Mengatur tampilan error */
+.stError {
+    color: red;
+    text-align: center;
+    margin-top: 20px;
+}
