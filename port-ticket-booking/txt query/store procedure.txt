@@ -1,0 +1,73 @@
+-- Membuat Store Procedure untuk Menampilkan Transaksi Harian --
+
+CREATE OR REPLACE FUNCTION public.laporan_transaksi_harian_sp(report_day VARCHAR)
+RETURNS TABLE (
+    id_pembayaran VARCHAR,
+    kode_pembayaran VARCHAR,
+    metode_pembayaran VARCHAR,
+    penyedia_pembayaran VARCHAR,
+    nama_admin VARCHAR,
+    admin_username VARCHAR,
+    id_pelanggan VARCHAR,
+    customer_name VARCHAR,
+    customer_email VARCHAR,
+    nama_kapal VARCHAR,
+    tujuan VARCHAR,
+    jenis_kelas VARCHAR,
+    cabin VARCHAR,
+    schedule_day VARCHAR,
+    dep_time TIME,
+    arr_time TIME,
+    id_tiket VARCHAR,
+    seat VARCHAR,
+    net_price NUMERIC(10,2),
+    waktu_transaksi TIMESTAMP
+) 
+LANGUAGE plpgsql
+AS $$
+BEGIN
+    RETURN QUERY
+    SELECT 
+        p.id_pembayaran,
+        p.kode_pembayaran,
+        p.metode_pembayaran,
+        p.penyedia_pembayaran,
+        a.nama_admin,
+        a.username AS admin_username,
+        pl.id_pelanggan,
+        pl.fullname AS customer_name,
+        pl.email AS customer_email,
+        k.nama_kapal,
+        k.tujuan,
+        kl.jenis_kelas,
+        kl.cabin,
+        s.day AS schedule_day,
+        s.dep_time,
+        s.arr_time,
+        t.id_tiket,
+        t.seat,
+        t.net_price,
+        p.waktu_transaksi
+    FROM 
+        pembayaran p
+    JOIN 
+        admin a ON p.id_admin = a.id_admin
+    JOIN 
+        pelanggan pl ON p.id_pelanggan = pl.id_pelanggan
+    JOIN 
+        tiket t ON p.id_pembayaran = t.id_pembayaran
+    JOIN 
+        schedule s ON t.id_schedule = s.id_schedule
+    JOIN 
+        kapal k ON s.id_kapal = k.id_kapal
+    JOIN 
+        kelas kl ON s.id_kelas = kl.id_kelas
+    WHERE 
+        s.day = report_day;
+END;
+$$;
+
+
+-- Menampilkan Output Transaksi Harian (contoh yang digunakan hari senin) --
+
+SELECT * FROM public.laporan_transaksi_harian_sp('Monday');
